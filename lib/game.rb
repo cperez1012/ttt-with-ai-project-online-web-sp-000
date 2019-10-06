@@ -47,15 +47,13 @@ WIN_COMBINATIONS = [
   end
 
   def turn
-    player = current_player
-    current_move = player.move
-    if !@board.valid_move?(current_move)
+    if !@board.valid_move?(player.move)
       turn
     else
       puts "Turn: #{@board.turn_count+1}"
       @board.display
-      @board.update(cuurent_move, player)
-      puts "#{player.token} moved #{current_move}"
+      @board.update(player.move, player)
+      puts "#{player.token} moved #{player.move}"
       @board.display
     end
   end
