@@ -47,7 +47,7 @@ WIN_COMBINATIONS = [
   end
 
   def turn
-    puts "Please choose a number between 1-9:"
+    puts "Please enter 1-9:"
     user_input = current_player.move(board)
      if board.valid_move?(user_input)
       board.update(user_input, current_player)
