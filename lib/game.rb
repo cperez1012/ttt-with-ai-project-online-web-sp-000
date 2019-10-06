@@ -46,9 +46,19 @@ WIN_COMBINATIONS = [
     end
   end
 
-  def turn(board)
-
-    puts "Please enter 1-9:"
+  def turn
+    player = current_player
+    current_move = player.move
+    if !@board.valid_move?(current_move)
+      turn
+    else
+      puts "Turn: #{@board.turn_count+1}"
+      @board.display
+      @board.update(cuurent_move, player)
+      puts "#{player.token} moved #{current_move}"
+      @board.display
+    end
+  end
   #   input = gets.strip
   #   if !Board.valid_move?(board, index)
   #     turn(board)
