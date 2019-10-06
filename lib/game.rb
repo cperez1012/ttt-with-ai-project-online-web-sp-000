@@ -59,10 +59,4 @@ WIN_COMBINATIONS = [
       @board.display
     end
   end
-  #   input = gets.strip
-  #   if !Board.valid_move?(board, index)
-  #     turn(board)
-  #   end
-  #   move(board, input, current_player(board))
-  #   display_board(board)
 end
