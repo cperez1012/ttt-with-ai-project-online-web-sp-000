@@ -47,19 +47,23 @@ WIN_COMBINATIONS = [
   end
 
   def turn
-    if !@board.valid_move?(player.move)
-      turn
+    puts "Please choose a number between 1-9:"
+    user_input = current_player.move(board)
+     if board.valid_move?(user_input)
+      board.update(user_input, current_player)
+      board.display
     else
-      puts "Turn: #{@board.turn_count+1}"
-      @board.display
-      @board.update(player.move, player)
-      puts "#{player.token} moved #{player.move}"
-      @board.display
+      turn
     end
   end
-
-  def play
-    turn until over?
-    puts winner ? "Congratulations #{winner}!" : "Cat's Game!"
+   def play
+    until over?
+      turn
+    end
+     if won?
+      puts "Congratulations #{winner}!"
+    else
+      puts "Cat's Game!"
+    end
   end
-end
+ end
